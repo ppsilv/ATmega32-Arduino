@@ -4,6 +4,13 @@
     Date:		06-10-2013
     Project:	ATmega32 for Arduino IDE
     Version:	v1.2
+
+    Version:	v1.3 
+    Date...:    20/07/2023
+    Author.:	Paulo da Silva
+    Email..:	ppsilv@gmail.com
+    Description: Added TAG: 20/07/2023
+
 */
 
 #ifndef Pins_Arduino_h
@@ -17,19 +24,18 @@
 #define PB 2
 #define PC 3
 #define PD 4
-
 /*
                         ATMEL ATmega32
 					   
                           +---\\---+
- 	   (XCK/T0) D0 PB0	01|        |40  PA0 AI7 D31 (ADC0)
- 	       (T1) D1 PB1	02|        |39  PA1 AI6 D30 (ADC1)
- 	(INT2/AIN0) D2 PB2	03|        |38  PA2 AI5 D29 (ADC2)
- 	 (OC0/AIN1) D3 PB3	04|        |37  PA3 AI4 D28 (ADC3)
-	       (SS) D4 PB4	05|        |36  PA4 AI3 D27 (ADC4)
-	     (MOSI) D5 PB5	06|        |35  PA5 AI2 D26 (ADC5)
-	     (MISO) D6 PB6	07|        |34  PA6 AI1 D25 (ADC6)
-	      (SCK) D7 PB7	08|        |33  PA7 AI0 D24 (ADC7)
+       (XCK/T0) D0 PB0	01|        |40  PA0 AI7 D31 (ADC0)
+           (T1) D1 PB1	02|        |39  PA1 AI6 D30 (ADC1)
+    (INT2/AIN0) D2 PB2	03|        |38  PA2 AI5 D29 (ADC2)
+     (OC0/AIN1) D3 PB3	04|        |37  PA3 AI4 D28 (ADC3)
+           (SS) D4 PB4	05|        |36  PA4 AI3 D27 (ADC4)
+         (MOSI) D5 PB5	06|        |35  PA5 AI2 D26 (ADC5)
+         (MISO) D6 PB6	07|        |34  PA6 AI1 D25 (ADC6)
+          (SCK) D7 PB7	08|        |33  PA7 AI0 D24 (ADC7)
                  RESET	09|        |32  AREF
                    VCC	10|        |31  GND
                    GND	11|        |30  AVCC
@@ -44,6 +50,50 @@
         (ICP1) D14 PD6	20|        |21  PD7 D15 (OC2)
                           +--------+
 */
+/*TAG: 20/07/2023 INIT/
+#define NUM_DIGITAL_PINS		31
+#define NUM_ANALOG_INPUTS		8
+#define	analogInputToDigitalPin(p)	((p < 8) ? (p) + 24: -1)
+
+#define PIN_SPI_SS	(4)
+#define PIN_SPI_MOSI	(5)
+#define PIN_SPI_MISO	(6)
+#define PIN_SPI_SCK	(7)
+static const uint8_t SS   = PIN_SPI_SS;
+static const uint8_t MOSI = PIN_SPI_MOSI;
+static const uint8_t MISO = PIN_SPI_MISO;
+static const uint8_t SCK  = PIN_SPI_SCK;
+
+#define PIN_WIRE_SDA	(17)
+#define PIN_WIRE_SCL	(16)
+static const uint8_t SDA = PIN_WIRE_SDA		
+static const uint8_t SCL = PIN_WIRE_SCL
+
+#define LED_BUILTIN	(22)
+
+#define PIN_A0		(24)
+#define PIN_A1		(25)
+#define PIN_A2		(26)
+#define PIN_A3		(27)
+#define PIN_A4		(28)
+#define PIN_A5		(29)
+#define PIN_A6		(30)
+#define PIN_A7		(31)
+static const uint8_t A0 = PIN_A0;
+static const uint8_t A1 = PIN_A1;
+static const uint8_t A2 = PIN_A2;
+static const uint8_t A3 = PIN_A3;
+static const uint8_t A4 = PIN_A4;
+static const uint8_t A5 = PIN_A5;
+static const uint8_t A6 = PIN_A6;
+static const uint8_t A7 = PIN_A7;
+
+#define SERIAL_PORT_MONITOR	Serial
+#define SERIAL_PORT_HARDWARE	Serial
+/*TAG: 20/07/2023 END/
+
+
+
 
 const uint16_t PROGMEM port_to_mode_PGM[5] = {
 	NOT_A_PORT,
